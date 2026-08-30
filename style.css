@@ -87,6 +87,36 @@ body {
     color: #0a1f44;
 }
 
+.navbar .router-link-exact-active:after {
+    background-color: #6030b1;
+}
+
+.navbar .router-link-exact-active:hover::after {
+    background-color: #6030b1;
+}
+
+.navbar .link:after {
+    background-color: rgb(10, 31, 68);
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    right: 0px;
+    left: auto;
+    width: 0px;
+    height: 3px;
+    z-index: 2;
+    transition: 0.25s cubic-bezier(0.694, 0.048, 0.335, 1);
+}
+
+.navbar .link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+:after {
+    box-sizing: inherit;
+}
+
 a.btn-contact {
     display: flex;
     cursor: pointer;
@@ -206,3 +236,15 @@ svg:not(:root).svg-inline--fa {
     height: 1em;
     vertical-align: -0.125em;
 }
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
