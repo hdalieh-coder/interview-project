@@ -27,19 +27,19 @@
                 <div class="content-wrapper flex-col align-center justify-between" style="position: relative;">
                     <div class="flex flex-col align-center" style="z-index: 10; background-color: rgb(255, 255, 255);">
                         <div style="width: 100%;">
-                            <div style="animation-duration: 1500ms; transition-duration: 1500ms; animation-delay: 300ms; transition-delay: 300ms; width: 100%;">
+                            <div class="fade-in-up fade-in-up-1" style="animation-duration: 1500ms; transition-duration: 1500ms; animation-delay: 300ms; transition-delay: 300ms; width: 100%;">
                                 <h1>America's favorite go to source for movie content</h1>
                             </div>
                         </div>
                         <div style="width: 100%;">
-                            <div style="animation-duration: 1500ms; transition-duration: 1500ms; animation-delay: 600ms; transition-delay: 600ms; width: 100%;">
+                            <div class="fade-in-up fade-in-up-2" style="animation-duration: 1500ms; transition-duration: 1500ms; animation-delay: 600ms; transition-delay: 600ms; width: 100%;">
                                 <h2>Find your favorite film with <span class="purple">Flickz</span></h2>
                             </div>
                         </div>
                         <div style="width: 100%;">
-                            <div style="animation-duration: 1500ms; transition-duration: 1500ms; animation-delay: 1100ms; transition-delay: 1100ms; width: 100;">
+                            <div class="fade-in" style="animation-duration: 1500ms; transition-duration: 1500ms; animation-delay: 1100ms; transition-delay: 1100ms; width: 100;">
                                 <div class="input-wrapper">
-                                    <input type="text">
+                                    <input type="text" id="search-box" placeholder="Search by Title, Year or Type">
                                     <button class="not-loading">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16">
                                             <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class></path>
@@ -50,10 +50,11 @@
                         </div>
                     </div>
                     <img src="./assets/undraw_home-cinema_jdm1.svg" alt="home-cinema" class="home-cinema">
-                    <div class="popcorn-wrapper">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div id="popcorn" style="display: none;">
+                        <div class="popcorn"></div>
+                        <div class="popcorn"></div>
+                        <div class="popcorn"></div>
+                        <div class="popcorn"></div>
                     </div>
                 </div>
             </section>
