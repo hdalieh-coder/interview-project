@@ -289,3 +289,108 @@ svg:not(:root).svg-inline--fa {
     left: 0;
     animation: popcornRoll 2s forwards;
 }
+
+/* 
+
+Film Page 
+
+*/
+
+.navbar.v2 {
+    height: 326px;
+    padding: 40px 15px;
+    background: grey;
+    align-items: center;
+    position: relative;
+}
+
+.content-wrapper.v2 {
+    margin-top: -20px;
+}
+
+.logo {
+    transition: all .15s ease;
+}
+
+.link.v2 {
+    filter: brightness(0) invert(1);
+}
+
+.links a.btn-contact.v2 {
+    background-color: #fff;
+    color: #6030b1;
+}
+
+.links a.btn-contact.v2:hover {
+    background-color: #ff328f;
+    color: #fff;
+}
+
+.content-wrapper.v2 {
+    z-index: 2;
+}
+
+.h1.v2 {
+    font-size: 45px;
+    max-width: 1000px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .1em;
+    margin-bottom: 40px;
+}
+
+.input-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.input.v2 {
+    color: rgba(0, 0, 0, .87);
+    width: 100%;
+    height: 60px;
+    max-width: 800px;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.search-wrapper {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10000;
+    padding: 0 20px 0 8px;
+    color: #6030b1;
+    font-size: 32px;
+    transition: all .2s ease;
+}
+
+.overlay {
+    background-image: url(/assets/felix-mooneeram-evlkOfkQ5rE-unsplash-1500x1000.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 1250% 1250%;
+    background-attachment: fixed;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(41, 25, 71, .83);
+}
