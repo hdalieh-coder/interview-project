@@ -370,6 +370,10 @@ Film Page
     transition: all .2s ease;
 }
 
+.search-wrapper:hover {
+    color: #ff328f;
+}
+
 .overlay {
     background-image: url(/assets/felix-mooneeram-evlkOfkQ5rE-unsplash-1500x1000.jpg);
     background-repeat: no-repeat;
@@ -393,4 +397,34 @@ Film Page
     right: 0;
     bottom: 0;
     background-color: rgba(41, 25, 71, .83);
+}
+
+#search {
+    position: relative;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#filter {
+    padding: 0 20px;
+}
+
+.search-info {
+    color:#6030b1;
+}
+
+.h1.v3 {
+    padding: 20px 0;
+    font-size: 28px;
+    line-height: 1.25;
+}
+
+.black-txt {
+    color: #0a1f44;
+    display: inline-block;
+}
+
+#films {
+    padding-top: 40px;
 }
