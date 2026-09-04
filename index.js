@@ -20,11 +20,10 @@ searchButton.addEventListener("click", searchMovie);
 // Search when Enter is pressed
 searchBox.addEventListener("keydown", function (event) {
 
-```
 if (event.key === "Enter") {
     searchMovie();
 }
-```
+
 
 });
 
@@ -38,7 +37,17 @@ if (searchTerm === "") {
     return;
 }
 
-window.location.href = `film.html?search=${encodeURIComponent(searchTerm)}`;
+// Show loading spinner
+    searchButton.classList.add("loading");
 
 
+// Disable the button while searching
+    searchButton.disabled = true;
+
+// Wait 1.5 seconds before going to the film page
+    setTimeout(function () {
+
+    window.location.href = `film.html?search=${encodeURIComponent(searchTerm)}`;
+
+    }, 1500);
 }
