@@ -314,25 +314,108 @@ svg:not(:root).svg-inline--fa {
     animation-delay: 1100ms;
 }
 
-@keyframes popcornRoll {
-    0% {
-        transform: translateX(-100px) rotate(0deg);
-    }
-    100% {
-        transform: translateX(100vw) rotate(360deg);
-    }
+/* =========================
+   Popcorn Animation
+   ========================= */
+
+#popcorn-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
 }
 
-.popcorn {
+
+/* Individual popcorn pieces */
+
+.popcorn-piece {
     position: absolute;
-    bottom: 10px;
-    width: 50px;
-    height: 50px;
-    background-color: yellow;
+    bottom: -50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    top: 50%;
-    left: 0;
-    animation: popcornRoll 2s forwards;
+    opacity: 0;
+    animation: popcorn-burst 2.2s ease-out forwards;
+}
+
+.popcorn-piece::before,
+.popcorn-piece::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fffef6;
+    box-shadow:
+        -6px -4px 0 #faf6e6,
+         6px -3px 0 #f6f0d6,
+         0 6px 0 #f1e7c2;
+}
+
+.popcorn-piece::before {
+    width: 24px;
+    height: 24px;
+    top: 2px;
+    left: 8px;
+}
+
+.popcorn-piece::after {
+    width: 16px;
+    height: 16px;
+    top: 14px;
+    left: 20px;
+}
+
+
+/* Popcorn flying animation */
+
+@keyframes popcorn-burst {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(0, 0)
+            rotate(0deg)
+            scale(0.4);
+    }
+
+
+    10% {
+        opacity: 1;
+    }
+
+
+    /* Fly upward and outward */
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translate(var(--x), var(--y))
+            rotate(var(--rotation))
+            scale(1);
+    }
+
+
+    75% {
+        opacity: 1;
+    }
+
+
+    /* Fall back down */
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(var(--fall-x), var(--fall-y))
+            rotate(var(--fall-rotation))
+            scale(0.7);
+    }
+
 }
 
 /* 
@@ -594,9 +677,9 @@ Message
 #message {
 width: 100%;
 text-align: center;
-color: #0a1f44;
-font-size: 18px;
-margin: 40px 0;
+color: #6030b1;
+font-size: 28px;
+text-transform: capitalize;
 }
 
 /* 

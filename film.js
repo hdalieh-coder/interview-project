@@ -30,7 +30,7 @@ searchButton.addEventListener("click", function () {
 const search = searchInput.value.trim();
 
 if (search === "") {
-    message.textContent = "Please enter a movie title.";
+    message.textContent = "Please enter a movie title";
     return;
 }
 
