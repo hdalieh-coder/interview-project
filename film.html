@@ -4,184 +4,297 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Flickz</title>
+    <title>Flickz</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<script
-    src="https://kit.fontawesome.com/0af1ea0883.js"
-    crossorigin="anonymous">
-</script>
+    <script
+        src="https://kit.fontawesome.com/0af1ea0883.js"
+        crossorigin="anonymous">
+    </script>
 
-<script src="film.js" defer></script>
+    <script src="film.js" defer></script>
 
 </head>
 
+
 <body>
 
-<div id="app">
+    <div id="app">
 
-    <div class="flex flex-col" style="display: flex; flex: 1 1 0%;">
-
-        <!-- Film Page Header -->
-        <div class="navbar v2 flex flex-col">
-
-            <div
-                class="flex content-wrapper v2 justify-between align-center"
-                style="flex-direction: row; z-index: 1005;"
-            >
-
-                <div class="logo">
-
-                    <a href="index.html">
-
-                        <img
-                            src="./assets/Copilot_20260906_005542.png"
-                            alt="Flickz logo"
-                            class="logo"
-                        >
-
-                    </a>
-
-                </div>
+        <div
+            class="flex flex-col"
+            style="display: flex; flex: 1 1 0%;"
+        >
 
 
-                <div class="links flex align-center justify-between">
+            <!-- ================================
+                 FILM PAGE HEADER
+            ================================= -->
 
-                    <a
-                        href="index.html"
-                        class="link v2">
-                        Home
-                    </a>
-
-                    <a
-                        href="film.html"
-                        class="link v2 router-link-exact-active router-link-active">
-                        Find your film
-                    </a>
-
-                    <a class="btn-contact v2">
-                        Contact
-                    </a>
-
-                </div>
-
-            </div>
+            <div class="navbar v2 flex flex-col">
 
 
-            <div
-                class="content-wrapper v2 flex-col align-center"
-                style="margin-top: 40px;"
-            >
+                <!-- ================================
+                     NAVIGATION
+                ================================= -->
 
-                <h1 class="h1 v2">
-                    Browse our films
-                </h1>
-
-
-                <!-- Film Search -->
-                <div class="input-wrap">
-
-                    <input
-                        id="film-search-input"
-                        class="input v2"
-                        type="text"
-                        placeholder="Search by Title, Year or Type"
-                    >
+                <div
+                    class="flex content-wrapper v2 justify-between align-center"
+                    style="
+                        flex-direction: row;
+                        z-index: 1005;
+                    "
+                >
 
 
-                    <div
-                        id="film-search-button"
-                        class="search-wrapper flex justify-center align-center"
-                    >
+                    <!-- Logo -->
+                    <div class="logo">
 
-                        <svg
-                            aria-hidden="true"
-                            focusable="false"
-                            data-prefix="fas"
-                            data-icon="search"
-                            role="img"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512"
-                            class="svg-inline--fa fa-search fa-w-16"
-                        >
+                        <a href="index.html">
 
-                            <path
-                                fill="currentColor"
-                                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                            <img
+                                src="./assets/Copilot_20260906_005542.png"
+                                alt="Flickz logo"
+                                class="logo"
                             >
 
-                            </path>
+                        </a>
 
-                        </svg>
+                    </div>
+
+
+                    <!-- ================================
+                         DESKTOP NAVIGATION
+                    ================================= -->
+
+                    <div class="links flex align-center justify-between">
+
+                        <a
+                            href="index.html"
+                            class="link v2"
+                        >
+                            Home
+                        </a>
+
+                        <a
+                            href="film.html"
+                            class="link v2 router-link-exact-active router-link-active"
+                        >
+                            Find your film
+                        </a>
+
+                        <a class="btn-contact v2">
+                            Contact
+                        </a>
+
+                    </div>
+
+
+                    <!-- ================================
+                         MOBILE NAVIGATION
+                    ================================= -->
+
+                    <div id="phone-nav">
+
+
+                        <!-- Burger Menu -->
+                        <div
+                            class="bento-menu"
+                            onclick="openMenu()"
+                        >
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                        </div>
+
+
+                        <!-- Close Button -->
+                        <div
+                            class="close-btn"
+                            onclick="closeMenu()"
+                        ></div>
+
+
+                        <!-- Mobile Menu -->
+                        <div class="showMenu">
+
+                            <a
+                                href="index.html"
+                                class="link"
+                                onclick="closeMenu()"
+                            >
+                                Home
+                            </a>
+
+                            <a
+                                href="film.html"
+                                class="link"
+                                onclick="closeMenu()"
+                            >
+                                Find your film
+                            </a>
+
+                            <a
+                                class="link"
+                                onclick="closeMenu()"
+                            >
+                                Contact
+                            </a>
+
+                        </div>
+
+
+                    </div>
+                    <!-- End Mobile Navigation -->
+
+
+                </div>
+                <!-- End Navigation -->
+
+
+                <!-- ================================
+                     FILM SEARCH HEADER
+                ================================= -->
+
+                <div
+                    class="content-wrapper v2 flex-col align-center"
+                    style="margin-top: 40px;"
+                >
+
+                    <h1 class="h1 v2">
+                        Browse our films
+                    </h1>
+
+
+                    <!-- Film Search -->
+                    <div class="input-wrap">
+
+                        <input
+                            id="film-search-input"
+                            class="input v2"
+                            type="text"
+                            placeholder="Search by Title, Year or Type"
+                        >
+
+
+                        <div
+                            id="film-search-button"
+                            class="search-wrapper flex justify-center align-center"
+                        >
+
+                            <svg
+                                aria-hidden="true"
+                                focusable="false"
+                                data-prefix="fas"
+                                data-icon="search"
+                                role="img"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512"
+                                class="svg-inline--fa fa-search fa-w-16"
+                            >
+
+                                <path
+                                    fill="currentColor"
+                                    d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                ></path>
+
+                            </svg>
+
+                        </div>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- Background Overlay -->
+                <div class="overlay"></div>
+
+
             </div>
 
 
-            <div class="overlay"></div>
+            <!-- ================================
+                 SEARCH RESULTS
+            ================================= -->
+
+            <section id="search">
+
+
+                <!-- Search Information -->
+                <div
+                    id="filter"
+                    class="content-wrapper justify-between"
+                >
+
+                    <h1 class="v3">
+
+                        <span class="black-txt">
+                            Search results:
+                        </span>
+
+                        <span
+                            id="search-info"
+                            class="search-info"
+                        ></span>
+
+                    </h1>
+
+                </div>
+
+
+                <!-- Films -->
+                <div id="films">
+
+                    <div class="content-wrapper">
+
+
+                        <!-- Loading Spinner -->
+                        <div
+                            id="loading"
+                            class="loading-state flex justify-center"
+                        >
+
+                            <div class="spinner"></div>
+
+                        </div>
+
+
+                        <!-- Messages -->
+                        <p id="message"></p>
+
+
+                        <!-- Movie Cards -->
+                        <div id="movieList"></div>
+
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
 
         </div>
 
-
-        <!-- Search Results -->
-        <section id="search">
-
-            <div id="filter" class="content-wrapper justify-between">
-
-                <h1 class="v3">
-
-                    <span class="black-txt">
-                        Search results:
-                    </span>
-
-                    <span
-                        id="search-info"
-                        class="search-info"
-                    ></span>
-
-                </h1>
-
-            </div>
-
-
-            <div id="films">
-
-                <div class="content-wrapper">
-
-                    <!-- Loading Spinner -->
-                    <div
-                        id="loading"
-                        class="loading-state flex justify-center"
-                    >
-
-                        <div class="spinner"></div>
-
-                    </div>
-
-
-                    <!-- Messages -->
-                    <p id="message"></p>
-
-
-                    <!-- Movie Cards -->
-                    <div id="movieList"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
     </div>
 
-</div>
 
 </body>
 

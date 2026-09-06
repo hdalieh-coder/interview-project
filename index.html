@@ -3,212 +3,326 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Flickz</title>
+    <title>Flickz</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<script
-    src="https://kit.fontawesome.com/0af1ea0883.js"
-    crossorigin="anonymous">
-</script>
+    <script
+        src="https://kit.fontawesome.com/0af1ea0883.js"
+        crossorigin="anonymous">
+    </script>
 
-<script src="index.js" defer></script>
+    <script src="index.js" defer></script>
 
 </head>
 
 <body>
 
-<div id="popcorn-container"></div>
+    <!-- Popcorn Animation -->
+    <div id="popcorn-container"></div>
 
-<div id="app">
 
-    <div class="flex flex-col" style="display: flex; flex: 1 1 0%;">
+    <div id="app">
 
-        <!-- Navigation -->
-        <header class="navbar">
+        <div
+            class="flex flex-col"
+            style="display: flex; flex: 1 1 0%;"
+        >
 
-            <div class="nav content-wrapper justify-between align-center">
+            <!-- ================================
+                 NAVIGATION
+            ================================= -->
 
-                <div class="logo">
-                    <a href="index.html">
-                        <img
-                            src="./assets/Copilot_20260826_215651.png"
-                            alt="Flickz logo"
-                            class="logo"
+            <header class="navbar">
+
+                <div class="nav content-wrapper justify-between align-center">
+
+
+                    <!-- Logo -->
+                    <div class="logo">
+
+                        <a href="index.html">
+
+                            <img
+                                src="./assets/Copilot_20260826_215651.png"
+                                alt="Flickz logo"
+                                class="logo"
+                            >
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- Desktop Navigation -->
+                    <div class="links align-center justify-between">
+
+                        <a
+                            href="index.html"
+                            class="link router-link-exact-active router-link-active"
                         >
-                    </a>
+                            Home
+                        </a>
+
+                        <a
+                            href="film.html"
+                            class="link"
+                        >
+                            Find your film
+                        </a>
+
+                        <a class="btn-contact">
+                            Contact
+                        </a>
+
+                    </div>
+
+
+                    <!-- ================================
+                         MOBILE NAVIGATION
+                    ================================= -->
+
+                    <div id="phone-nav">
+
+
+                        <!-- Burger Menu -->
+                        <div
+                            class="bento-menu"
+                            onclick="openMenu()"
+                        >
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                        </div>
+
+
+                        <!-- Close Button -->
+                        <div
+                            class="close-btn"
+                            onclick="closeMenu()"
+                        ></div>
+
+
+                        <!-- Mobile Menu -->
+                        <div class="showMenu">
+
+                            <a
+                                href="index.html"
+                                class="link router-link-exact-active router-link-active"
+                                onclick="closeMenu()"
+                            >
+                                Home
+                            </a>
+
+                            <a
+                                href="film.html"
+                                class="link"
+                                onclick="closeMenu()"
+                            >
+                                Find your film
+                            </a>
+
+                            <a
+                                class="link"
+                                onclick="closeMenu()"
+                            >
+                                Contact
+                            </a>
+
+                        </div>
+
+
+                    </div>
+                    <!-- End Mobile Navigation -->
+
+
                 </div>
-
-                <div class="links align-center justify-between">
-
-                    <a
-                        href="index.html"
-                        class="link router-link-exact-active router-link-active">
-                        Home
-                    </a>
-
-                    <a
-                        href="film.html"
-                        class="link">
-                        Find your film
-                    </a>
-
-                    <a class="btn-contact">
-                        Contact
-                    </a>
-
-                </div>
+                <!-- End Navigation Container -->
 
 
-            </div>
-
-        </header>
+            </header>
 
 
-        <!-- Landing Page -->
-        <section id="landing-page">
+            <!-- ================================
+                 LANDING PAGE
+            ================================= -->
 
-            <div
-                class="content-wrapper flex-col align-center justify-between"
-                style="position: relative;"
-            >
+            <section id="landing-page">
 
                 <div
-                    class="flex flex-col align-center"
-                    style="z-index: 10; background-color: rgb(255, 255, 255);"
+                    class="content-wrapper flex-col align-center justify-between"
+                    style="position: relative;"
                 >
 
-                    <div style="width: 100%;">
 
-                        <div
-                            class="fade-in-up fade-in-up-1"
-                            style="
-                                animation-duration: 1500ms;
-                                transition-duration: 1500ms;
-                                animation-delay: 300ms;
-                                transition-delay: 300ms;
-                                width: 100%;
-                            "
-                        >
-
-                            <h1 class="v1">
-                                America's favorite go to source for movie content
-                            </h1>
-
-                        </div>
-
-                    </div>
+                    <!-- Main Content -->
+                    <div
+                        class="flex flex-col align-center"
+                        style="
+                            z-index: 10;
+                            background-color: rgb(255, 255, 255);
+                        "
+                    >
 
 
-                    <div style="width: 100%;">
+                        <!-- Main Heading -->
+                        <div style="width: 100%;">
 
-                        <div
-                            class="fade-in-up fade-in-up-2"
-                            style="
-                                animation-duration: 1500ms;
-                                transition-duration: 1500ms;
-                                animation-delay: 600ms;
-                                transition-delay: 600ms;
-                                width: 100%;
-                            "
-                        >
+                            <div
+                                class="fade-in-up fade-in-up-1"
+                                style="
+                                    animation-duration: 1500ms;
+                                    transition-duration: 1500ms;
+                                    animation-delay: 300ms;
+                                    transition-delay: 300ms;
+                                    width: 100%;
+                                "
+                            >
 
-                            <h2>
-                                Find your favorite film with
-                                <span class="purple">Flickz</span>
-                            </h2>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Search -->
-                    <div style="width: 100%;">
-
-                        <div
-                            class="fade-in"
-                            style="
-                                animation-duration: 1500ms;
-                                transition-duration: 1500ms;
-                                animation-delay: 1100ms;
-                                transition-delay: 1100ms;
-                                width: 100%;
-                            "
-                        >
-
-                            <div class="input-wrapper">
-
-                                <input
-                                    type="text"
-                                    id="search-box"
-                                    placeholder="Search by Title, Year or Type"
-                                >
-
-                                <button
-                                    id="home-search-button"
-                                    class="not-loading"
-                                    type="button"
-                                    aria-label="Search"
-                                >
-
-                                    <svg
-                                        id="home-search-icon"
-                                        aria-hidden="true"
-                                        focusable="false"
-                                        data-prefix="fas"
-                                        data-icon="search"
-                                        role="img"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                        class="svg-inline--fa fa-search fa-w-16"
-                                    >
-
-                                        <path
-                                            fill="currentColor"
-                                            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-                                        >
-
-                                        </path>
-
-                                    </svg>
-
-                                    <span
-                                        id="home-search-spinner"
-                                        class="home-search-spinner"
-                                        aria-hidden="true"
-                                    ></span>
-
-                                </button>
+                                <h1 class="v1">
+                                    America's favorite go to source for movie content
+                                </h1>
 
                             </div>
 
                         </div>
 
+
+                        <!-- Sub Heading -->
+                        <div style="width: 100%;">
+
+                            <div
+                                class="fade-in-up fade-in-up-2"
+                                style="
+                                    animation-duration: 1500ms;
+                                    transition-duration: 1500ms;
+                                    animation-delay: 600ms;
+                                    transition-delay: 600ms;
+                                    width: 100%;
+                                "
+                            >
+
+                                <h2>
+                                    Find your favorite film with
+                                    <span class="purple">Flickz</span>
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================================
+                             SEARCH
+                        ================================= -->
+
+                        <div style="width: 100%;">
+
+                            <div
+                                class="fade-in"
+                                style="
+                                    animation-duration: 1500ms;
+                                    transition-duration: 1500ms;
+                                    animation-delay: 1100ms;
+                                    transition-delay: 1100ms;
+                                    width: 100%;
+                                "
+                            >
+
+                                <div class="input-wrapper">
+
+
+                                    <!-- Search Input -->
+                                    <input
+                                        type="text"
+                                        id="search-box"
+                                        placeholder="Search by Title, Year or Type"
+                                    >
+
+
+                                    <!-- Search Button -->
+                                    <button
+                                        id="home-search-button"
+                                        class="not-loading"
+                                        type="button"
+                                        aria-label="Search"
+                                    >
+
+                                        <!-- Search Icon -->
+                                        <svg
+                                            id="home-search-icon"
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="search"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                            class="svg-inline--fa fa-search fa-w-16"
+                                        >
+
+                                            <path
+                                                fill="currentColor"
+                                                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                                            ></path>
+
+                                        </svg>
+
+
+                                        <!-- Loading Spinner -->
+                                        <span
+                                            id="home-search-spinner"
+                                            class="home-search-spinner"
+                                            aria-hidden="true"
+                                        ></span>
+
+                                    </button>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
                     </div>
+
+
+                    <!-- ================================
+                         HOME ILLUSTRATION
+                    ================================= -->
+
+                    <img
+                        src="./assets/undraw_home-cinema_jdm1.svg"
+                        alt="Home cinema"
+                        class="home-cinema"
+                    >
+
 
                 </div>
 
-
-                <!-- Home illustration -->
-                <img
-                    src="./assets/undraw_home-cinema_jdm1.svg"
-                    alt="Home cinema"
-                    class="home-cinema"
-                >
+            </section>
 
 
-            </div>
-
-        </section>
+        </div>
 
     </div>
-
-</div>
 
 </body>
 
