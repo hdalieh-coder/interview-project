@@ -122,11 +122,16 @@ setTimeout(function () {
 
 } catch (error) {
 
+// Wait 1.5 seconds before showing the error
+setTimeout(function () {
+
     loading.style.display = "none";
 
     message.textContent =
         "Something went wrong. Please try again.";
 
+}, 1500);
+    
     console.error(error);
 
 }
