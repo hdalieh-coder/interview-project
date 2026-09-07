@@ -192,8 +192,8 @@ movies.forEach(function (movie) {
 
 }
 
-function openMenu() {
-    document.body.classList.add("menu--open");
+function toggleMenu() {
+    document.body.classList.toggle("menu--open");
 }
 
 function closeMenu() {

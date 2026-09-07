@@ -156,8 +156,8 @@ if (searchTerm === "") {
     }, 2500);
 }
 
-function openMenu() {
-    document.body.classList.add("menu--open");
+function toggleMenu() {
+    document.body.classList.toggle("menu--open");
 }
 
 function closeMenu() {

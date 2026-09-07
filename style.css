@@ -138,12 +138,14 @@ a.btn-contact:hover {
 }
 
 #phone-nav {
-    display: none;
+    position: relative;
+    z-index: 10001;
 }
 
 .bento-menu {
     width: 40px;
     height: 40px;
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 7px);
     grid-template-rows: repeat(3, 7px);
@@ -151,44 +153,17 @@ a.btn-contact:hover {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 10002;
 }
 
-.bento-menu>div {
+.bento-menu > div {
     width: 7px;
     height: 7px;
     background-color: #6030b1;
     border-radius: 50%;
-    transition: all .25s ease;
-}
-
-.close-btn {
-    display: none;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    cursor: pointer;
-    z-index: 10002;
-    background-color: transparent;
-}
-
-.close-btn::before,
-.close-btn::after {
-    content: "";
-    position: absolute;
-    width: 28px;
-    height: 3px;
-    background-color: #6030b1;
-    top: 18px;
-    left: 6px;
-    border-radius: 3px;
-}
-
-.close-btn::before {
-    transform: rotate(45deg);
-}
-
-.close-btn::after {
-    transform: rotate(-45deg);
+    transition: 
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .showMenu {
@@ -225,6 +200,10 @@ a.btn-contact:hover {
     text-decoration: none;
 }
 
+.showMenu .link::after {
+    display: none;
+}
+
 .menu--open {
     overflow: hidden;
 }
@@ -235,12 +214,37 @@ a.btn-contact:hover {
     transform: translateY(0);
 }
 
-.menu--open .bento-menu {
-    display: none;
+/* X that appears when the menu is open */
+
+.bento-menu::before,
+.bento-menu::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    background-color: #6030b1;
+    border-radius: 3px;
+    top: 18px;
+    left: 6px;
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.2s ease;
 }
 
-.menu--open .close-btn {
-    display: block;
+.menu--open .bento-menu::before {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+.menu--open .bento-menu::after {
+    opacity: 1;
+    transform: rotate(-45deg);
+}
+
+/* Hide the dots when the X appears */
+
+.menu--open .bento-menu > div {
+    opacity: 0;
+    transform: scale(0);
 }
 
 #landing-page {
