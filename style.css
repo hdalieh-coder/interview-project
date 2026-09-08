@@ -804,7 +804,7 @@ font-weight: 400;
 
 /*
 
-Responsive Design
+SMALL PHONES, TABLETS, LARGE SMARTPHONES
 
 */
 
@@ -828,6 +828,10 @@ Responsive Design
     display: block;
 }
 
+input {
+    font-size: 18px;
+}
+
 #movieList {
     grid-template-columns: repeat(2, 1fr);
 }
@@ -841,6 +845,36 @@ Responsive Design
 
 @media (min-width: 751px) {
     #phone-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 585px) {
+    #landing-page {
+        padding: 10px 20px 40px 20px;
+    }
+    .v1,
+    h2 {
+        text-align: left;
+    }
+    h2 {
+        font-size: 34px;
+    }
+    .input-wrapper {
+        flex-direction: column;
+    }
+    .input-wrapper input {
+        font-size: 16px;
+        height: 60px;
+        padding: 0 0 0 8px;
+    }
+    .input-wrapper button {
+        max-width: none;
+        width: 100%;
+        margin: 20px 0 0 0;
+    }
+    .home-cinema,
+    #popcorn-container {
         display: none;
     }
 }
