@@ -657,6 +657,41 @@ Film Page
     padding: 0 20px;
 }
 
+.sort-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.sort-wrapper label {
+    color: #0a1f44;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#title-sort {
+    height: 40px;
+    padding: 0 12px;
+    border: 2px solid #6030b1;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #6030b1;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#title-sort:focus {
+    outline: none;
+    border-color: #6030b1;
+}
+
+#title-sort:hover {
+    background-color: #ff328f;
+    border: 2px solid #ff328f;
+    color: #fff;
+}
+
 .search-info {
     color:#6030b1;
 }
@@ -816,6 +851,76 @@ font-weight: 400;
 
 /*
 
+Footer
+
+*/
+
+.footer {
+    margin-top: 80px;
+    padding: 30px 20px;
+    background-color: #242424;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer .logo {
+    height: 48px;
+    width: 150px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.footer p:last-child {
+    opacity: 0.7;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: auto;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    z-index: 2;
+    background-color: #fff;
+    transition: 0.25s cubic-bezier(0.694, 0.048, 0.335, 1);
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-links a:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+/*
+
 SMALL PHONES, TABLETS, LARGE SMARTPHONES
 
 */
@@ -842,6 +947,15 @@ SMALL PHONES, TABLETS, LARGE SMARTPHONES
 
 input {
     font-size: 18px;
+}
+
+#filter {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sort-wrapper {
+    margin-bottom: 20px;
 }
 
 #movieList {

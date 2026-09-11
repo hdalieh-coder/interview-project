@@ -8,6 +8,11 @@ const loading = document.querySelector("#loading");
 const message = document.querySelector("#message");
 const searchInfo = document.querySelector("#search-info");
 
+const titleSort = document.querySelector("#title-sort");
+
+// Store the movies
+let movies = [];
+
 // Get the search term from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("search");
@@ -15,187 +20,195 @@ const searchTerm = urlParams.get("search");
 // Search automatically when the page opens
 if (searchTerm) {
 
+    searchInput.value = searchTerm;
 
-searchInput.value = searchTerm;
-
-fetchMovies(searchTerm);
-
+    fetchMovies(searchTerm);
 
 }
 
 // Search button
 searchButton.addEventListener("click", function () {
 
+    const search = searchInput.value.trim();
 
-const search = searchInput.value.trim();
+    if (search === "") {
+        message.textContent = "Please enter a movie title";
+        return;
+    }
 
-if (search === "") {
-    message.textContent = "Please enter a movie title";
-    return;
-}
-
-fetchMovies(search);
-
+    fetchMovies(search);
 
 });
 
 // Press Enter to search
 searchInput.addEventListener("keydown", function (event) {
 
+    if (event.key === "Enter") {
 
-if (event.key === "Enter") {
+        const search = searchInput.value.trim();
 
-    const search = searchInput.value.trim();
+        if (search === "") {
+            return;
+        }
 
-    if (search === "") {
-        return;
+        fetchMovies(search);
+
     }
 
-    fetchMovies(search);
+});
 
-}
+// Change sorting
+titleSort.addEventListener("change", function () {
 
+    sortMovies();
 
 });
 
 // Fetch movies from OMDb
 async function fetchMovies(search) {
 
+    // Show spinner
+    loading.style.display = "flex";
 
-// Show spinner
-loading.style.display = "flex";
+    // Clear old results
+    movieList.innerHTML = "";
 
-// Clear old results
-movieList.innerHTML = "";
+    message.textContent = "";
 
-message.textContent = "";
+    searchInfo.textContent = "";
 
-searchInfo.textContent = "";
+    const url =
+        `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(search)}`;
 
+    try {
 
-const url =
-    `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(search)}`;
+        const response = await fetch(url);
 
+        const data = await response.json();
 
-try {
+        // Check if OMDb found movies
+        if (data.Response === "False") {
 
-    const response = await fetch(url);
+            loading.style.display = "none";
 
-    const data = await response.json();
+            message.textContent = "Coming soon...";
 
+            return;
 
-    // Check if OMDb found movies
-    if (data.Response === "False") {
+        }
 
-        loading.style.display = "none";
+        // Save the movies
+        movies = data.Search;
 
-        message.textContent = "Coming soon...";
+        // Display search information
+        searchInfo.textContent =
+            ` ${data.totalResults} movies found for "${search}"`;
 
-        return;
+        // Keep the spinner visible for a little longer
+        setTimeout(function () {
+
+            // Sort and display movies
+            sortMovies();
+
+            // Hide spinner
+            loading.style.display = "none";
+
+        }, 1500);
+
+    } catch (error) {
+
+        // Wait 1.5 seconds before showing the error
+        setTimeout(function () {
+
+            loading.style.display = "none";
+
+            message.textContent =
+                "Something went wrong. Please try again.";
+
+        }, 1500);
+
+        console.error(error);
 
     }
 
+}
 
-    // Sort movies alphabetically A-Z
-    data.Search.sort(function (a, b) {
+// Sort movies
+function sortMovies() {
 
-        return a.Title.localeCompare(b.Title);
+    const sortType = titleSort.value;
+
+    movies.sort(function (a, b) {
+
+        if (sortType === "az") {
+
+            return a.Title.localeCompare(b.Title);
+
+        }
+
+        return b.Title.localeCompare(a.Title);
 
     });
 
-
-    // Display search information
-    searchInfo.textContent = ` ${data.totalResults} movies found for "${search}"`;
-
-
- // Keep the spinner visible for a little longer
-setTimeout(function () {
-
-    // Display movies
-    displayMovies(data.Search);
-
-    // Hide spinner
-    loading.style.display = "none";
-
-}, 1500);
-
-
-} catch (error) {
-
-// Wait 1.5 seconds before showing the error
-setTimeout(function () {
-
-    loading.style.display = "none";
-
-    message.textContent =
-        "Something went wrong. Please try again.";
-
-}, 1500);
-    
-    console.error(error);
-
-}
-
+    displayMovies(movies);
 
 }
 
 // Display movies
 function displayMovies(movies) {
 
+    movieList.innerHTML = "";
 
-movieList.innerHTML = "";
+    movies.forEach(function (movie) {
 
+        const movieCard = document.createElement("article");
 
-movies.forEach(function (movie) {
+        movieCard.classList.add("movie-card");
 
-    const movieCard = document.createElement("article");
+        // Use a placeholder if OMDb doesn't have a poster
+        const poster =
+            movie.Poster !== "N/A"
+                ? movie.Poster
+                : "./assets/no-poster.jpg";
 
-    movieCard.classList.add("movie-card");
+        movieCard.innerHTML = `
 
+            <img
+                src="${poster}"
+                alt="${movie.Title} poster"
+                class="movie-poster"
+            >
 
-    // Use a placeholder if OMDb doesn't have a poster
-    const poster =
-        movie.Poster !== "N/A"
-            ? movie.Poster
-            : "./assets/no-poster.jpg";
+            <div class="movie-info">
 
+                <h2>${movie.Title}</h2>
 
-    movieCard.innerHTML = `
+                <p>
+                    <strong>Year:</strong> ${movie.Year}
+                </p>
 
-        <img
-            src="${poster}"
-            alt="${movie.Title} poster"
-            class="movie-poster"
-        >
+                <p>
+                    <strong>Type:</strong> ${movie.Type}
+                </p>
 
-        <div class="movie-info">
+            </div>
 
-            <h2>${movie.Title}</h2>
+        `;
 
-            <p>
-                <strong>Year:</strong> ${movie.Year}
-            </p>
+        movieList.appendChild(movieCard);
 
-            <p>
-                <strong>Type:</strong> ${movie.Type}
-            </p>
-
-        </div>
-
-    `;
-
-
-    movieList.appendChild(movieCard);
-
-});
-
+    });
 
 }
 
 function toggleMenu() {
+
     document.body.classList.toggle("menu--open");
+
 }
 
 function closeMenu() {
+
     document.body.classList.remove("menu--open");
+
 }
